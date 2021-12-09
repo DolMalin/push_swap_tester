@@ -11,7 +11,7 @@ fi
 
 for i in {1..100}
 do
-	ARGS=`ruby -e "puts (0..$1).to_a.shuffle.join(' ')"`
+	ARGS=`ruby -e "puts (1..$1).to_a.shuffle.join(' ')"`
 	COUNT=`./push_swap $ARGS | wc -l`
 	CHECK=`./push_swap $ARGS | ./checker_Mac $ARGS`
 	let "RES += $COUNT"
