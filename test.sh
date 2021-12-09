@@ -23,6 +23,6 @@ do
 	fi
 done
 echo 
-echo "SCORE FOR $1 RANDOM NUMERS : "$(($RES/100))
+echo "SCORE FOR $1 RANDOM NUMBERS : "$(($RES/100))
 
 rm -rf ./push_swap
