@@ -3,6 +3,12 @@
 make -C ../push_swap
 cp ../push_swap/push_swap ./
 
+if ! [[ "$1" =~ ^[0-9]+$ ]]
+	then
+		echo "Input error"
+		exit 0
+fi
+
 for i in {1..100}
 do
 	ARGS=`ruby -e "puts (0..$1).to_a.shuffle.join(' ')"`
@@ -10,9 +16,10 @@ do
 	CHECK=`./push_swap $ARGS | ./checker_Mac $ARGS`
 	let "RES += $COUNT"
 	echo -ne "\r$i%"
-	if [ "$CHECK" = "KO" ]; then
-		echo "KO"
-		exit 0
+	if [ "$CHECK" = "KO" ]
+		then
+			echo "KO"
+			exit 0
 	fi
 done
 echo 
